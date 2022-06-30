@@ -21,6 +21,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import PersonIcon from '@mui/icons-material/Person';
 import { NavLink } from 'react-router-dom';
+import HourglassFullIcon from '@mui/icons-material/HourglassFull';
 
 
 const drawerWidth = 240;
@@ -103,8 +104,10 @@ export default function Layout({children}) {
   };
 
   let items =[
+          
+            { label :'Doctor', to:'/doctor', icon:<PersonIcon/>},
             { label :'Medicines', to:'/medicines', icon:<LocalHospitalIcon/>},
-            { label :'Doctor', to:'/doctor', icon:<PersonIcon/>}
+            { label :'Counter', to:'/Counter', icon:<HourglassFullIcon/>},
         ]
 
   return (
