@@ -3,8 +3,7 @@ import * as Actiontypes from '../Actiontypes';
 const  initilState ={
     Counter: 0
 } 
-export const 
-CountreReducer=(state=initilState, action)=>{
+export const CountreReducer=(state=initilState, action)=>{
    
      switch (action.type) {
         case  Actiontypes. INCREMENT_COUNTER :

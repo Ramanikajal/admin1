@@ -16,7 +16,8 @@ import { DataGrid } from '@mui/x-data-grid';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CreateIcon from '@mui/icons-material/Create';
-import { useSelector } from 'react-redux';
+import {useDispatch,useSelector } from 'react-redux';
+import { getMedicines } from '../../Redux/action/Medicines.action';
 
 function Medicines(props) {
     const [open, setOpen] = React.useState(false);
@@ -25,8 +26,9 @@ function Medicines(props) {
     const [dopen, setDopen] = React.useState(false);
     const [did, setDid] = useState()
     const [uid, setUid] = useState()
-    
+    const dispatch=useDispatch();
 
+   
     const handleClickDopen = (id) => {
         setDopen(true);
         setDid(id);
@@ -122,6 +124,8 @@ function Medicines(props) {
     useEffect(
         () => {
             loadData()
+            dispatch(getMedicines())
+           
         },
         [])
 

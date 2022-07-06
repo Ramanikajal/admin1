@@ -1,0 +1,56 @@
+{
+  "Medicines": [
+    {
+      "id": 1,
+      "name": "kj",
+      "quantity": "20",
+      "price": "202",
+      "expiry": 2023
+    },
+    {
+      "id": 2,
+      "name": "peracitamol",
+      "quantity": "30",
+      "price": "230",
+      "expiry": 2022
+    },
+    {
+      "id": 3,
+      "name": "disprin",
+      "quantity": "10",
+      "price": "2000",
+      "expiry": 2024
+    },
+    {
+      "id": 4,
+      "name": "sprin",
+      "quantity": "2",
+      "price": "54",
+      "expiry": 2023
+    },
+    {
+      "id": 5,
+      "name": "dolo",
+      "quantity": "20",
+      "price": "202",
+      "expiry": 2023
+    },
+    {
+      "id": 6,
+      "name": "kjbhb",
+      "quantity": "202222",
+      "price": "202",
+      "expiry": 2023
+    }
+  ],
+  "Doctors": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
