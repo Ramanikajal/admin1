@@ -1,5 +1,4 @@
 
-
 import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -194,8 +193,12 @@ function Medicines(props) {
         <>
             {
                 Medicines.isLoading ?
+                (
                     <p>Loading...</p>
-                    :
+                 ) :(
+                    Medicines.error !== '' ?
+                    <p>{Medicines.error }</p>:
+                
                      
                     < Box >
                         <Container>
@@ -316,6 +319,7 @@ function Medicines(props) {
                             </div>
                         </Container>
                     </Box >
+                     )
             }
 
 
