@@ -43,7 +43,7 @@
       "expiry": 2023
     }
   ],
-  "Doctors": [
+  "Mediciness": [
     {
       "id": 1,
       "body": "some comment",

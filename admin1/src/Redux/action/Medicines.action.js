@@ -2,8 +2,11 @@ import { BASE_URL } from '../../shared/BASE_URL';
 import * as Actiontypes from '../Actiontypes';
 
 export const getMedicines = () => (dispatch) => {
+   
     try {
-        fetch( BASE_URL + "Medicines")
+        dispatch(loadingMediciens());
+        setTimeout(function()  {
+           fetch( BASE_URL + "Medicines")
             .then(response => {
                 if (response.ok) {
                     return response;
@@ -18,10 +21,23 @@ export const getMedicines = () => (dispatch) => {
                     throw errmess;
                 })
             .then(response => response.json())
-            .then(Medicines => dispatch(({ type: Actiontypes.GET_MEDICINES, payload: Medicines })))
-            // .catch(error => dispatch(medicinesFailed(error.message)));
-            .catch( error =>console.log(error));
+            .then(Medicines => dispatch(({ type: Actiontypes.GET_MEDICINE, payload: Medicines })))
+            // .catch(error => dispatch(MedicinesFailed(error.message)));
+            .catch( error => console.log(error));
+            
+            
+        }, 2000);
+       
     }catch(error){
-        console.log(error);
+        console.log(error);;
     }
 }
+export const loadingMediciens= () => (dispatch) =>{
+    dispatch({type:Actiontypes.LOADING_MEDICIENS})
+
+}
+// export const errorMedicines = (error) => (dispatch) =>{
+//     dispatch({type: Actiontypes.ERROR_MEDICIENS, payload : error})
+
+// }
+
