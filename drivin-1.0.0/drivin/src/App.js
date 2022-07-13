@@ -12,6 +12,9 @@ import Testimonial from "./container/Testimonial/Testimonial";
 import Contact from "./container/Contact/Contact";
 import Get_Started from "./container/Get_Started/Get_Started";
 import Login from "./container/Login/Login";
+import Testimonials from "./container/Slider/Testimonials";
+import Slider from "./container/Slider/Slider";
+// import Testimonials from "./Components/Slider/Testimonials";
 
 
 function App() {
@@ -30,6 +33,7 @@ function App() {
     <Route exact path={"/Contact"}component={Contact}/>
     <Route exact path={"/Login"} component={Login}/>
     <Route exact  path={"/Get_Started"}component={Get_Started}/>
+    <Slider/>
   </Switch>
   <Footer/>
 
