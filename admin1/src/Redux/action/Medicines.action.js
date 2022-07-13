@@ -6,7 +6,7 @@ export const getMedicines = () => (dispatch) => {
     try {
         dispatch(loadingMediciens());
         setTimeout(function()  {
-           fetch( BASE_URL + "Medicine")
+           fetch( BASE_URL + "Medicines")
             .then(response => {
                 if (response.ok) {
                     return response;
@@ -39,5 +39,42 @@ export const loadingMediciens= () => (dispatch) =>{
 export const errorMedicines = (error) => (dispatch) =>{
     dispatch({type: Actiontypes.ERROR_MEDICIENS, payload : error})
 
+}
+export const addMedicines =(data) => (dispatch) => {
+    
+    try {
+        dispatch(loadingMediciens());
+        setTimeout(function()  {
+           fetch( BASE_URL + "Medicines",{
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+
+           })
+            .then(response => {
+                if (response.ok) {
+                    return response;
+                } else {
+                    var error = new Error("Error " + response.status + ":" + response.statusText);
+                    error.response = response;
+                    throw error;
+                }
+            },
+                error => {
+                    var errmess = new Error(error.message);
+                    throw errmess;
+                })
+            .then(response => response.json())
+            .then(Medicines => dispatch(({ type: Actiontypes.POST_MEDICIENS, payload: Medicines })))
+            // .catch(error => dispatch(MedicinesFailed(error.message)));
+            // .catch( error => console.log(error));
+            .catch((error)=>dispatch(errorMedicines(error.message)));   
+        }, 2000);
+       
+    }catch(error){
+        // console.log(error);;
+        dispatch(errorMedicines(error.message))
+    }
+    
 }
 

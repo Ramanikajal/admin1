@@ -41,6 +41,20 @@
       "quantity": "202222",
       "price": "202",
       "expiry": 2023
+    },
+    {
+      "id": 17,
+      "name": "kjhjn",
+      "price": "25",
+      "quantity": "256",
+      "expiry": "20/2/2023"
+    },
+    {
+      "id": 810,
+      "name": "kjhjn",
+      "price": "52",
+      "quantity": "253",
+      "expiry": "2025"
     }
   ],
   "Mediciness": [

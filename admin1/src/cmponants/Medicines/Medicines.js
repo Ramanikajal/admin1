@@ -17,6 +17,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CreateIcon from '@mui/icons-material/Create';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMedicines } from '../../Redux/action/Medicines.action';
+import { addMedicines } from '../../Redux/action/Medicines.action';
 // import{ isLoading}from'../../Redux/Reducer/Medicines.Reducer';
 import { Message } from '@mui/icons-material';
 
@@ -27,8 +28,6 @@ function Medicines(props) {
     const [dopen, setDopen] = React.useState(false);
     const [did, setDid] = useState()
     const [uid, setUid] = useState()
-
-  
     const Medicines = useSelector(state => state.Medicines)
 
     console.log(Medicines.isLoading)
@@ -98,19 +97,21 @@ function Medicines(props) {
     }
 
     const handleSubmitdata = (values) => {
-        let localdata = JSON.parse(localStorage.getItem("medicine"));
+        
+        // let localdata = JSON.parse(localStorage.getItem("medicine"));
 
         let data = {
             id: Math.floor(Math.random() * 1000),
             ...values
         }
+        dispatch(addMedicines(data))
 
-        if (localdata === null) {
-            localStorage.setItem("medicine", JSON.stringify([data]))
-        } else {
-            localdata.push(data)
-            localStorage.setItem("medicine", JSON.stringify(localdata))
-        }
+        // if (localdata === null) {
+        //     localStorage.setItem("medicine", JSON.stringify([data]))
+        // } else {
+        //     localdata.push(data)
+        //     localStorage.setItem("medicine", JSON.stringify(localdata))
+        // }
 
         setOpen(false);
         loadData()

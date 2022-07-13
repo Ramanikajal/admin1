@@ -1,10 +1,9 @@
 import React from 'react';
 
-function Home(props) {
-  return (
-    <div>
-
-      {/* Carousel Start */}
+function Get_Started(props) {
+    return (
+        <div>
+            {/* Carousel Start */}
       <div className="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
         <div id="header-carousel" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
@@ -445,7 +444,8 @@ function Home(props) {
       </div>
 
     </div>
-  );
+    
+    );
 }
 
-export default Home;
+export default Get_Started;
