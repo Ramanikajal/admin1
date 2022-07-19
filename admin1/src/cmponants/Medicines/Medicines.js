@@ -16,7 +16,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CreateIcon from '@mui/icons-material/Create';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMedicines } from '../../Redux/action/Medicines.action';
+import { deleteMedicines, getMedicines, upadateMedicines } from '../../Redux/action/Medicines.action';
 import { addMedicines } from '../../Redux/action/Medicines.action';
 // import{ isLoading}from'../../Redux/Reducer/Medicines.Reducer';
 import { Message } from '@mui/icons-material';
@@ -79,18 +79,20 @@ function Medicines(props) {
     })
 
     const handleupdate = (values) => {
-        let localdata = JSON.parse(localStorage.getItem("medicine"));
+        console.log(values)
+        dispatch(upadateMedicines(values))
+        // let localdata = JSON.parse(localStorage.getItem("medicine"));
 
-        let udata = localdata.map((l, i) => {
-            if (l.id === uid) {
-                return { id: uid, ...values };
-            } else {
-                return l;
-            }
-        })
-        console.log(udata);
+        // let udata = localdata.map((l, i) => {
+        //     if (l.id === uid) {
+        //         return { id: uid, ...values };
+        //     } else {
+        //         return l;
+        //     }
+        // })
+        // console.log(udata);
 
-        localStorage.setItem("medicine", JSON.stringify(udata))
+        // localStorage.setItem("medicine", JSON.stringify(udata))
         setOpen(false)
         setUpdate(false)
         loadData()
@@ -173,6 +175,7 @@ function Medicines(props) {
         setUpdate(true)
         console.log(params.row.id)
         formik.setValues({
+            id: params.row.id,
             name: params.row.name,
             price: params.row.price,
             quantity: params.row.quantity,
@@ -181,13 +184,16 @@ function Medicines(props) {
     }
 
     const handleDelete = () => {
-        let localData = JSON.parse(localStorage.getItem("medicine"))
+        console.log(data)
+        // let localData = JSON.parse(localStorage.getItem("medicine"))
 
-        let filterData = localData.filter((v, i) => v.id !== did);
+        // let filterData = localData.filter((v, i) => v.id !== did);
 
-        localStorage.setItem("medicine", JSON.stringify(filterData));
-        loadData()
+        // localStorage.setItem("medicine", JSON.stringify(filterData));
+        // loadData()
         setDopen(false)
+        dispatch(deleteMedicines(did));
+        handleClose('');
     }
 
     return (

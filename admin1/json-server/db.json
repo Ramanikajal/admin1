@@ -1,6 +1,50 @@
 {
   "Medicines": [
     {
+      "id": 2,
+      "name": "peracitamol",
+      "quantity": "30",
+      "price": "230",
+      "expiry": 2022
+    },
+    {
+      "id": 4,
+      "name": "sprin",
+      "quantity": "2",
+      "price": "54",
+      "expiry": 2023
+    },
+    {
+      "id": 5,
+      "name": "dolojjjj",
+      "price": "202",
+      "quantity": "20",
+      "expiry": 2023
+    },
+    {
+      "id": 6,
+      "name": "kjbhb",
+      "quantity": "202222",
+      "price": "202",
+      "expiry": 2023
+    },
+    {
+      "id": 810,
+      "name": "kjhjn",
+      "price": "52",
+      "quantity": "253",
+      "expiry": "2025"
+    },
+    {
+      "id": 666,
+      "name": "paracitamolgfgfgf",
+      "price": "256",
+      "quantity": "25666",
+      "expiry": "20/2/2023"
+    }
+  ],
+  "doctors": [
+    {
       "id": 1,
       "name": "kj",
       "quantity": "20",
@@ -13,13 +57,6 @@
       "quantity": "30",
       "price": "230",
       "expiry": 2022
-    },
-    {
-      "id": 3,
-      "name": "disprin",
-      "quantity": "10",
-      "price": "2000",
-      "expiry": 2024
     },
     {
       "id": 4,
@@ -55,6 +92,13 @@
       "price": "52",
       "quantity": "253",
       "expiry": "2025"
+    },
+    {
+      "id": 666,
+      "name": "paracitamolgfgfgf",
+      "price": "256",
+      "quantity": "25666",
+      "expiry": "20/2/2023"
     }
   ],
   "Doctor": [

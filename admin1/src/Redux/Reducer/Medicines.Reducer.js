@@ -31,14 +31,33 @@ export const MedicinesReducer = (state = initialState, action) => {
                 Medicines: [],
                 error: action.payload
             }
-     case Actiontypes.POST_MEDICIENS:
-                return {
-                    ...state,
-                    isLoading: false,
-                    Medicines: state.Medicines.concat(action.payload),
-                    error: ''
-                }
-    
+        case Actiontypes.POST_MEDICIENS:
+            return {
+                ...state,
+                isLoading: false,
+                Medicines: state.Medicines.concat(action.payload),
+                error: ''
+            }
+        case Actiontypes.DELET_MEDICIENS:
+            return {
+                ...state,
+                isLoading: false,
+                Medicines: state.Medicines.filter((d) => d.id !== action.payload),
+                error: ''
+            }
+        case Actiontypes.UPADATE_MEDICINE:
+            return {
+                ...state,
+                isLoading: false,
+                Medicines: state.Medicines.map((l) => {
+                    if (l.id === action.payload.id) {
+                        return action.payload
+                    } else {
+                        return l
+                    }
+                }),
+                error: ''
+            }
 
         default:
             return state;
