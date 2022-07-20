@@ -108,6 +108,8 @@ export default function Layout({children}) {
             { label :'Doctor', to:'/doctor', icon:<PersonIcon/>},
             { label :'Medicines', to:'/medicines', icon:<LocalHospitalIcon/>},
             { label :'Counter', to:'/Counter', icon:<HourglassFullIcon/>},
+            { label :'promisesExample', to:'/promisesExample', icon:<HourglassFullIcon/>},
+          
         ]
 
   return (

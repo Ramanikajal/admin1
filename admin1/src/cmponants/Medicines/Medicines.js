@@ -312,11 +312,7 @@ function Medicines(props) {
                                         <DialogTitle id="alert-dialog-title">
                                             {"Are You Sure Delete Medicine Data ...? "}
                                         </DialogTitle>
-                                        <DialogContent>
-                                            <DialogContentText id="alert-dialog-description">
-
-                                            </DialogContentText>
-                                        </DialogContent>
+                                       
                                         <DialogActions>
                                             <Button onClick={() => handleDelete()} autofocus>yes</Button>
                                             <Button onClick={handleClose}>No</Button>

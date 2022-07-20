@@ -105,9 +105,9 @@ export default function Layout({children}) {
 
   let items =[
           
-            { label :'Doctor', to:'/doctor', icon:<PersonIcon/>},
-            { label :'Medicines', to:'/medicines', icon:<LocalHospitalIcon/>},
-            { label :'Counter', to:'/Counter', icon:<HourglassFullIcon/>},
+            { label :'Doctor', to:'doctor', icon:<PersonIcon/>},
+            { label :'Medicines', to:'medicines', icon:<LocalHospitalIcon/>},
+            { label :'Promise_example', to:'Promise_example', icon:<LocalHospitalIcon/>},
         ]
 
   return (
@@ -141,7 +141,7 @@ export default function Layout({children}) {
         <Divider />
         <List>
           {items.map((label, index) => (
-            <ListItem key={index} exact component={NavLink} to={label.to} disablePadding sx={{ display: 'block' }}>
+            <ListItem key={Text.label} exact component={NavLink} to={label.to} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -156,7 +156,7 @@ export default function Layout({children}) {
                     justifyContent: 'center',
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {Text.icon}
                 </ListItemIcon>
                 <ListItemText primary={label .to} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
