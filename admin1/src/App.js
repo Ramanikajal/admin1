@@ -7,7 +7,10 @@ import { Provider } from 'react-redux'
 import Counter from './conteiner/Counter/Counter';
 import { PersistGate } from 'redux-persist/integration/react'
 import Promise_example from './conteiner/Promise_Example/Promise_example';
-// import promisesExample from './conteiner/PromiseExample/promisesExample';
+import UseMemoexampal from './conteiner/Fectorial/UseMemoexampal';
+
+
+
 
 function App() {
   const {store ,persistor}  = configureStore();
@@ -22,6 +25,8 @@ function App() {
         <Route exact path={'/doctor'} component={Doctor} />
         <Route exact path={'/Counter'} component={Counter} />
         <Route exact path={'/promisesExample'} component={Promise_example} />
+        <Route exact path={'/UseMemoexampal'} component={UseMemoexampal} />
+       
 
       </Switch>
     </Layout>

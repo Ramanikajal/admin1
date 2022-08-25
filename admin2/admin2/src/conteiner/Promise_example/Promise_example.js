@@ -76,7 +76,7 @@ function Promise_example(props) {
 
     return (
         <div>
-
+            <p> am Promise</p>
         </div>
     );
 }

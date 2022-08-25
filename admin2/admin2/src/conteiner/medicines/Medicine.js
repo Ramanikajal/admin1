@@ -13,11 +13,16 @@ import { DataGrid } from '@mui/x-data-grid';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CreateIcon from '@mui/icons-material/Create';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMedicinesAction } from '../Redux/action/Medicine.action';
 
 function Medicine(props) {
   const [open, setOpen] = React.useState(false);
   const [data, setData] = useState([])
   const [Update, setUpdate] = useState()
+
+  const getm = useSelector(state => state.Medicine)
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -44,13 +49,13 @@ function Medicine(props) {
   const formik = useFormik({
     initialValues: {
       name: '',
-      price:'',
-      quantity:'',
+      price: '',
+      quantity: '',
       expiry: ''
     },
     validationSchema: schema,
     onSubmit: (value, { resetForm }) => {
-      if(Update) {
+      if (Update) {
         handleupdate(value)
       } else {
         handleSubmitdata(value)
@@ -61,10 +66,10 @@ function Medicine(props) {
 
   const handleupdate = (value) => {
     let localdata = JSON.parse(localStorage.getItem("medicine"));
-    
+
     let udata = localdata.map((l, i) => {
-      if(l.id === value.id) {
-          return value;
+      if (l.id === value.id) {
+        return value;
       } else {
         return l;
       }
@@ -142,16 +147,19 @@ function Medicine(props) {
   }
 
   const loadData = () => {
-    let localData = JSON.parse(localStorage.getItem("medicine"))
 
-    if (localData !== null) {
-      setData(localData)
-    }
+    // let localData = JSON.parse(localStorage.getItem("medicine"))
+
+    // if (localData !== null) {
+    //   setData(localData)
+    // }
   }
+  const dispatch = useDispatch()
 
   useEffect(
     () => {
       loadData()
+      dispatch(getMedicinesAction())
     },
     [])
 
@@ -168,7 +176,7 @@ function Medicine(props) {
           </center>
           <div style={{ height: 400, width: '100%' }}>
             <DataGrid
-              rows={data}
+              rows={getm.Medicine}
               columns={columns}
 
               pageSize={5}
@@ -236,9 +244,9 @@ function Medicine(props) {
                     <Button onClick={handleClose}>Cancel</Button>
                     {
                       Update ?
-                      <Button type="submit">Update</Button>
-                       :
-                      <Button type="submit">Submit</Button>
+                        <Button type="submit">Update</Button>
+                        :
+                        <Button type="submit">Submit</Button>
                     }
                   </DialogActions>
                 </DialogContent>

@@ -22,6 +22,11 @@ import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import PersonIcon from '@mui/icons-material/Person';
 import { NavLink } from 'react-router-dom';
 import HourglassFullIcon from '@mui/icons-material/HourglassFull';
+import { ThemeContext } from '@emotion/react';
+
+// const  Theme= React.useContext(ThemeContext)
+// console.log(Theme);
+
 
 
 const drawerWidth = 240;
@@ -91,7 +96,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function Layout({children}) {
+export default function Layout({ children }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -103,14 +108,15 @@ export default function Layout({children}) {
     setOpen(false);
   };
 
-  let items =[
-          
-            { label :'Doctor', to:'/doctor', icon:<PersonIcon/>},
-            { label :'Medicines', to:'/medicines', icon:<LocalHospitalIcon/>},
-            { label :'Counter', to:'/Counter', icon:<HourglassFullIcon/>},
-            { label :'promisesExample', to:'/promisesExample', icon:<HourglassFullIcon/>},
-          
-        ]
+  let items = [
+
+    { label: 'Doctor', to: '/doctor', icon: <PersonIcon /> },
+    { label: 'Medicines', to: '/medicines', icon: <LocalHospitalIcon /> },
+    { label: 'Counter', to: '/Counter', icon: <HourglassFullIcon /> },
+    { label: 'promisesExample', to: 'promisesExample', icon: <HourglassFullIcon /> },
+    { label: 'UseMemoexampal', to: '/UseMemoexampal', icon: <HourglassFullIcon /> },
+
+  ]
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -160,17 +166,17 @@ export default function Layout({children}) {
                 >
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
-                <ListItemText primary={label .to} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary={label.to} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
         <Divider />
-        
+
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        
+
         {children}
       </Box>
     </Box>

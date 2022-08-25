@@ -2,9 +2,9 @@
   "Medicines": [
     {
       "id": 2,
-      "name": "peracitamol",
-      "quantity": "30",
+      "name": "peracitamol12",
       "price": "230",
+      "quantity": "30",
       "expiry": 2022
     },
     {

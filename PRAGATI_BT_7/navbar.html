@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> 
+    <style>
+       /* .navbar-light .navbar-nav .nav-link {
+            color: #fff;
+        } */
+        .carousel-item{
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: name duration timing-function delay iteration-count direction fill-mode;
+        }
+        @media (max-width:991px) {
+            .bg-md-primary{
+                background-color: blue !important;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="" data-bs-offset="50">
+    
+
+
+<header>
+    <nav class="navbar-expand-lg navbar-light bg-light bg-md-primary position-fixed top-0 w-100 navbar1" id="navbar-example2">
+        <div class="container">
+            <div class="navbar p-0">
+                <div>Logo</div>
+               
+                <div class="navbar-collapse collapse  navbaropen order-1 order-lg-0" id="">
+                    <ul class="navbar-nav ms-auto nav nav-pills">
+                        <li><a href="#" class="nav-link">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#blog" class="nav-link">Services</a></li>
+                        <li class="position-relative">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dropdown </a>
+                            <ul class="dropdown-menu">
+                                <li>Home</li>
+                                <li>Home</li>
+                                <li>Home</li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="nav-link">Contact Us</a></li> 
+                    </ul>
+                </div>
+                <div>
+                    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbaropen"><span class="navbar-toggler-icon"></span></button>
+                    <a href="#exampleModal" class="btn btn-primary my-2 " data-bs-toggle="modal">LOGIN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header> 
+ 
+
+
+<main>
+    <!-- <section>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active"></button>
+                <button data-bs-target="#carouselExampleControls" data-bs-slide-to="1"></button>
+                <button data-bs-target="#carouselExampleControls" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url(img/slider.jpg);"> 
+                    <div class="container">
+                         <div class="row">
+                              <div class="col-12">
+                                  <div class="d-flex justify-content-center align-items-center vh-100 flex-column"> 
+                                      <h1>sfdsd</h1>
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio et repudiandae unde nihil magnam, architecto perspiciatis repellendus veniam labore nostrum.</p>
+                                      <button class="btn btn-primary">sdsd</button>
+                                  </div>
+                              </div>
+                         </div>
+                    </div>
+                </div>
+                <div class="carousel-item "  style="background-image: url(https://cdn.hipwallpaper.com/i/51/25/SJbBlA.jpg);"> 
+                </div>
+                <div class="carousel-item "  style="background-image: url(img/slider.jpg);"> 
+                </div>
+            </div>
+            <button class="carousel-control-prev" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>        
+    </section> -->
+    <!-- <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <form>
+                        <div class="form-floating">
+                            <input type="email" class="form-control is-invalid" placeholder="Email" value="Lorem Ipsum">
+                            <label for="">Email</label>
+                        </div>
+                        <div class="form-floating">
+                            <textarea  cols="" rows="" class="form-control" placeholder="sds"></textarea>
+                            <label for="">Address</label>
+                        </div>
+                        <div class="form-floating">
+                            <select class="form-select">
+                                <option>1</option>
+                                <option>1</option>
+                                <option>1</option>
+                                <option>1</option>
+                            </select>
+                            <label for="">Select</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <div class="bg-light p-3 mt-3">
+                        <form class="needs-validation" novalidate>
+                            <div class="my-3">
+                                <label class="form-label">First Name</label>
+                                <input type="text" placeholder="Enter First Name" class="form-control" required>
+                                <div class="valid-feedback">
+                                    Looks Good
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please Enter
+                                </div>
+                            </div>
+                            <div class="my-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" placeholder="Enter Email" class="form-control" required>
+                            </div>
+                            <div class="my-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control" required>
+                                <div class="valid-feedback">
+                                    Looks Good
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please Enter
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">SUBMIT</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12"></div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6"> 
+                        <a href="#openclps" class="btn btn-primary" data-bs-toggle="collapse">First</a>
+                        <p class="collapse third" id="openclps">
+                            First Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis explicabo aut iste dolores reprehenderit quo soluta sequi aperiam expedita assumenda architecto veritatis recusandae quisquam officiis ab, quam quidem at cupiditate dignissimos tenetur doloribus iure accusamus beatae. Incidunt, aliquam corporis magni deserunt commodi eum perferendis voluptas eveniet quidem modi. Facere magnam odio dolores similique, ipsa consequuntur rem mollitia molestias nemo voluptates perspiciatis, molestiae quibusdam cum nesciunt dignissimos eaque inventore ex, officiis explicabo quos amet laudantium maxime aspernatur! Exercitationem, incidunt? Vero laboriosam quis harum ex impedit atque accusantium autem illum, quasi dicta. Quia, a esse reprehenderit mollitia ut perspiciatis dolore odio enim.
+                        </p> 
+                        <a href="#openclps" class="btn btn-primary" data-bs-toggle="collapse">Second</a>
+                        <p class="collapse third" id="openclps">
+                            Second Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis explicabo aut iste dolores reprehenderit quo soluta sequi aperiam expedita assumenda architecto veritatis recusandae quisquam officiis ab, quam quidem at cupiditate dignissimos tenetur doloribus iure accusamus beatae. Incidunt, aliquam corporis magni deserunt commodi eum perferendis voluptas eveniet quidem modi. Facere magnam odio dolores similique, ipsa consequuntur rem mollitia molestias nemo voluptates perspiciatis, molestiae quibusdam cum nesciunt dignissimos eaque inventore ex, officiis explicabo quos amet laudantium maxime aspernatur! Exercitationem, incidunt? Vero laboriosam quis harum ex impedit atque accusantium autem illum, quasi dicta. Quia, a esse reprehenderit mollitia ut perspiciatis dolore odio enim.
+                        </p> 
+                        <a href="#" class="btn btn-primary" data-bs-target=".third" data-bs-toggle="collapse">Third</a>
+                </div>
+                <div class="col-md-6">
+                    <div class="accordion" id="parent">
+                        <div>
+                            <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#click1">Click 1</button>
+                            <div id="click1" class="collapse show" data-bs-parent="#parent">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos beatae dicta dolore quod dolores autem magnam id delectus obcaecati alias? Itaque sapiente alias laborum exercitationem magnam vitae eveniet voluptas ad incidunt sit eaque natus non provident accusamus quibusdam sed tenetur architecto totam, voluptatibus et iusto odit blanditiis mollitia! Odio, dicta.
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#click2">Click 1</button>
+                            <div id="click2" class="collapse" data-bs-parent="#parent">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos beatae dicta dolore quod dolores autem magnam id delectus obcaecati alias? Itaque sapiente alias laborum exercitationem magnam vitae eveniet voluptas ad incidunt sit eaque natus non provident accusamus quibusdam sed tenetur architecto totam, voluptatibus et iusto odit blanditiis mollitia! Odio, dicta.
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary"  data-bs-toggle="collapse" data-bs-target="#click3">Click 1</button>
+                            <div id="click3" class="collapse" data-bs-parent="#parent">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos beatae dicta dolore quod dolores autem magnam id delectus obcaecati alias? Itaque sapiente alias laborum exercitationem magnam vitae eveniet voluptas ad incidunt sit eaque natus non provident accusamus quibusdam sed tenetur architecto totam, voluptatibus et iusto odit blanditiis mollitia! Odio, dicta.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <p id="about" class="pt-5"><b>About</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.</p>
+    <p id="blog" class="pt-5"><b>Services</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.</p>
+    <p><b></b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.</p>
+    <p><b></b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officiis accusantium est dolorum voluptas, consequatur consequuntur. Quis eius fugiat sunt, magnam, quo quae esse dicta nesciunt deserunt ipsam blanditiis eos quod consequuntur ut soluta eaque? Voluptas, odio. Et consequuntur atque illo illum expedita, repudiandae veniam nobis. Quo eum inventore ullam consectetur dolorem! Fuga nam porro aliquam optio eos aperiam, maiores quasi praesentium ea commodi consequatur doloribus placeat qui officia aut minima voluptatibus eveniet sed molestiae. Iusto voluptate officia ea commodi vel dolorum laudantium iste magni inventore? Libero, quibusdam? Aut dolorum numquam laborum molestiae repellat eaque consequatur nulla nobis illum corporis.</p>
+</main>
+
+<div class="modal fade" id="exampleModal">
+    <div class="modal-dialog  ">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <h4>LOGIN 1</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Username">
+                    </div>
+                    <div>
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter Your Password">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">Open 2</button>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<div class="modal fade" id="exampleModal1">
+    <div class="modal-dialog  ">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <h4>LOGIN 2</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Username">
+                    </div>
+                    <div>
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter Your Password">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Back</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<script>
+    (function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+</body>
+</html>

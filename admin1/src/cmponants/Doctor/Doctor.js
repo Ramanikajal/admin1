@@ -14,7 +14,8 @@ import { DataGrid } from '@mui/x-data-grid';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CreateIcon from '@mui/icons-material/Create';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addDoctor, deletDoctor, getDoctor, updetDoctor } from '../../Redux/action/Doctor.action';
 
 function Doctor(props) {
     const [open, setOpen] = React.useState(false);
@@ -23,7 +24,12 @@ function Doctor(props) {
     const [dopen, setDopen] = React.useState(false);
     const [did, setDid] = useState()
     const [uid, setUid] = useState()
-    const Counter = useSelector(state =>state.Counter)
+    const Counter = useSelector(state => state.Counter)
+    const Doctor = useSelector(state => state.Doctor)
+    const dispatch = useDispatch()
+
+
+    console.log(Doctor.isLoading)
 
 
     const handleClickDopen = (id) => {
@@ -44,22 +50,22 @@ function Doctor(props) {
     };
 
 
-    let medicine = {
-        name: yup.string().required('please enter name'),
-        price: yup.string().required('please enter price'),
-        quantity: yup.string().required('please enter quantity'),
-        expiry: yup.string().required('please enter expiry'),
+    let doctor = {
+        Doctorname: yup.string().required('please enter Doctorname '),
+        Degree: yup.string().required('please enter Degree'),
+        Aptprice: yup.string().required('please enter Aptprice'),
+        Discription: yup.string().required('please enter Discription'),
     }
 
 
-    let schema = yup.object().shape(medicine);
+    let schema = yup.object().shape(doctor);
 
     const formik = useFormik({
         initialValues: {
-            name: '',
-            price: '',
-            quantity: '',
-            expiry: ''
+            Doctorname: '',
+            Degree: '',
+            Aptprice: '',
+            Discription: ''
         },
         validationSchema: schema,
         onSubmit: values => {
@@ -72,37 +78,39 @@ function Doctor(props) {
     })
 
     const handleupdate = (values) => {
-        let localdata = JSON.parse(localStorage.getItem("medicine"));
+        dispatch(updetDoctor(values))
+        // let localdata = JSON.parse(localStorage.getItem("Doctor"));
 
-        let udata = localdata.map((l, i) => {
-            if (l.id === uid) {
-                return { id: uid, ...values };
-            } else {
-                return l;
-            }
-        })
-        console.log(udata);
+        // let udata = localdata.map((l, i) => {
+        //     if (l.id === uid) {
+        //         return { id: uid, ...values };
+        //     } else {
+        //         return l;
+        //     }
+        // })
+        // console.log(udata);
 
-        localStorage.setItem("medicine", JSON.stringify(udata))
+        // localStorage.setItem("Doctor", JSON.stringify(udata))
         setOpen(false)
         setUpdate(false)
         loadData()
     }
 
     const handleSubmitdata = (values) => {
-        let localdata = JSON.parse(localStorage.getItem("medicine"));
+        // let localdata = JSON.parse(localStorage.getItem("Doctor"));
 
-        let data = {
-            id: Math.floor(Math.random() * 1000),
-            ...values
-        }
+        // let data = {
+        //     id: Math.floor(Math.random() * 1000),
+        //     ...values
+        // }
+        dispatch(addDoctor(values))
+        // if (localdata === null) {
+        //     localStorage.setItem("Doctor", JSON.stringify([data]))
+        // } else {
+        //     localdata.push(data)
+        //     localStorage.setItem("Doctor", JSON.stringify(localdata))
+        // }
 
-        if (localdata === null) {
-            localStorage.setItem("medicine", JSON.stringify([data]))
-        } else {
-            localdata.push(data)
-            localStorage.setItem("medicine", JSON.stringify(localdata))
-        }
 
         setOpen(false);
         loadData()
@@ -111,7 +119,7 @@ function Doctor(props) {
 
 
     const loadData = () => {
-        let localData = JSON.parse(localStorage.getItem("medicine"))
+        let localData = JSON.parse(localStorage.getItem("Doctor"))
 
         if (localData !== null) {
             setData(localData)
@@ -121,15 +129,16 @@ function Doctor(props) {
     useEffect(
         () => {
             loadData()
+            dispatch(getDoctor())
         },
         [])
 
     const columns = [
         { field: 'id', headerName: 'Id', width: 130 },
-        { field: 'name', headerName: 'Name', width: 130 },
-        { field: 'price', headerName: ' Price', width: 130 },
-        { field: 'quantity', headerName: 'Quantity', width: 130 },
-        { field: 'expiry', headerName: 'Expiry', width: 130 },
+        { field: 'Doctorname', headerName: 'Doctorname', width: 130 },
+        { field: 'Degree', headerName: ' Degree', width: 130 },
+        { field: 'Aptprice', headerName: 'Aptprice', width: 130 },
+        { field: 'Discription', headerName: 'Discription', width: 130 },
         {
             field: 'delete', headerName: 'Delete', width: 130,
             renderCell: (params) => (
@@ -161,19 +170,21 @@ function Doctor(props) {
         setUpdate(true)
         console.log(params.row.id)
         formik.setValues({
-            name: params.row.name,
-            price: params.row.price,
-            quantity: params.row.quantity,
-            expiry: params.row.expiry,
+            id:params.id,
+            Doctorname: params.row.Doctorname,
+            Degree: params.row.Degree,
+            Aptprice: params.row.Aptprice,
+            Discription: params.row.Discription,
         });
     }
 
     const handleDelete = () => {
-        let localData = JSON.parse(localStorage.getItem("medicine"))
+        // let localData = JSON.parse(localStorage.getItem("Doctor"))
 
-        let filterData = localData.filter((v, i) => v.id !== did);
+        // let filterData = localData.filter((v, i) => v.id !== did);
 
-        localStorage.setItem("medicine", JSON.stringify(filterData));
+        // localStorage.setItem("Doctor", JSON.stringify(filterData));
+        dispatch(deletDoctor(did))
         loadData()
         setDopen(false)
     }
@@ -186,14 +197,14 @@ function Doctor(props) {
                 <div>
                     <center>
                         <Button variant="outlined" onClick={() => handleClickOpen()}>
-                            Add Medicine
+                            Add Doctor
                         </Button>
 
                         <p>{Counter.Counter}</p>
                     </center>
                     <div style={{ height: 400, width: '100%' }}>
                         <DataGrid
-                            rows={data}
+                            rows={Doctor.Doctor}
                             columns={columns}
                             pageSize={5}
                             rowsPerPageOptions={[5]}
@@ -202,73 +213,73 @@ function Doctor(props) {
 
                     </div>
                     <Dialog open={open} onClose={handleClose}>
-                        <DialogTitle>Add Medicine</DialogTitle>
+                        <DialogTitle>Add Doctor</DialogTitle>
                         <Formik values={formik}>
                             <Form onSubmit={formik.handleSubmit}>
                                 <DialogContent>
 
                                     <TextField
                                         margin="dense"
-                                        id="name"
-                                        label="name"
-                                        type="name"
+                                        id="Doctorname"
+                                        label="Doctorname"
+                                        type="Doctorname"
                                         fullWidth
                                         variant="standard"
                                         onChange={formik.handleChange}
-                                        value={formik.values.name}
-                                        helperText={formik.errors.name}
-                                        error={formik.errors.name ? true : false}
+                                        value={formik.values.Doctorname}
+                                        helperText={formik.errors.Doctorname}
+                                        error={formik.errors.Doctorname ? true : false}
 
                                     />
 
                                     {
-                                        formik.errors.name && formik.touched.name ? <p>{formik.errors.name}</p> : ''
+                                        formik.errors.Doctorname && formik.touched.Doctorname ? <p>{formik.errors.Doctorname}</p> : ''
                                     }
 
                                     <TextField
                                         margin="dense"
-                                        id="price"
-                                        label="price"
-                                        type="price"
+                                        id="Degree"
+                                        label="Degree"
+                                        type="Degree"
                                         fullWidth
                                         variant="standard"
                                         onChange={formik.handleChange}
-                                        value={formik.values.price}
-                                        helperText={formik.errors.price}
-                                        error={formik.errors.price ? true : false}
+                                        value={formik.values.Degree}
+                                        helperText={formik.errors.Degree}
+                                        error={formik.errors.Degree ? true : false}
                                     />
                                     {
-                                        formik.errors.price && formik.touched.price ? <p>{formik.errors.price}</p> : ''
+                                        formik.errors.Degree && formik.touched.Degree ? <p>{formik.errors.Degree}</p> : ''
                                     }
 
                                     <TextField
                                         margin="dense"
-                                        id="quantity"
-                                        label="quantity"
+                                        id="Aptprice"
+                                        label="Aptprice"
                                         fullWidth
                                         variant="standard"
                                         onChange={formik.handleChange}
-                                        value={formik.values.quantity}
-                                        helperText={formik.errors.quantity}
-                                        error={formik.errors.quantity ? true : false}
+                                        value={formik.values.Aptprice}
+                                        helperText={formik.errors.Aptprice}
+                                        error={formik.errors.Aptprice ? true : false}
 
                                     />
                                     {
-                                        formik.errors.quantity && formik.touched.quantity ? <p>{formik.errors.quantity}</p> : ''
+                                        formik.errors.Aptprice && formik.touched.Aptprice ? <p>{formik.errors.Aptprice}</p> : ''
                                     }
                                     <TextField
                                         margin="dense"
-                                        id="expiry"
-                                        label="expiry"
+                                        id="Discription"
+                                        label="Discription"
                                         fullWidth
                                         variant="standard"
                                         onChange={formik.handleChange}
-                                        v alue={formik.values.expiry}
-                                        helperText={formik.errors.expiry}
-                                        error={formik.errors.expiry ? true : false}
+                                        value={formik.values.Discription}
+                                        helperText={formik.errors.Discription}
+                                        error={formik.errors.Discription ? true : false}
                                     />
                                     {
-                                        formik.errors.expiry && formik.touched.expiry ? <p>{formik.errors.expiry}</p> : ''
+                                        formik.errors.Discription && formik.touched.Discription ? <p>{formik.errors.Discription}</p> : ''
                                     }
                                     <DialogActions>
                                         <Button onClick={handleClose}>Cancel</Button>
@@ -286,7 +297,7 @@ function Doctor(props) {
                             aria-describedby="alert-dialog-description"
                         >
                             <DialogTitle id="alert-dialog-title">
-                                {"Are You Sure Delete Medicine Data ...? "}
+                                {"Are You Sure Delete Doctor Data ...? "}
                             </DialogTitle>
                             <DialogContent>
                                 <DialogContentText id="alert-dialog-description">

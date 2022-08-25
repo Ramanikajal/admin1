@@ -108,6 +108,7 @@ export default function Layout({children}) {
             { label :'Doctor', to:'doctor', icon:<PersonIcon/>},
             { label :'Medicines', to:'medicines', icon:<LocalHospitalIcon/>},
             { label :'Promise_example', to:'Promise_example', icon:<LocalHospitalIcon/>},
+            { label :'counetr', to:'counetr', icon:<LocalHospitalIcon/>},
         ]
 
   return (
