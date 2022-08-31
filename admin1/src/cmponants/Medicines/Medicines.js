@@ -29,6 +29,7 @@ function Medicines(props) {
     const [did, setDid] = useState()
     const [uid, setUid] = useState()
     const Medicines = useSelector(state => state.Medicines)
+    
 
     console.log(Medicines.isLoading)
 

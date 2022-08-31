@@ -34,7 +34,7 @@ function Doctor(props) {
 
     const handleClickDopen = (id) => {
         setDopen(true);
-        setDid(id);
+        // setDid(id);
     };
 
     const handleClickOpen = () => {
@@ -55,6 +55,7 @@ function Doctor(props) {
         Degree: yup.string().required('please enter Degree'),
         Aptprice: yup.string().required('please enter Aptprice'),
         Discription: yup.string().required('please enter Discription'),
+        file: yup.mixed().required('plese select file')
     }
 
 
@@ -65,7 +66,8 @@ function Doctor(props) {
             Doctorname: '',
             Degree: '',
             Aptprice: '',
-            Discription: ''
+            Discription: '',
+            file: '',
         },
         validationSchema: schema,
         onSubmit: values => {
@@ -97,6 +99,7 @@ function Doctor(props) {
     }
 
     const handleSubmitdata = (values) => {
+        // console.log(values);
         // let localdata = JSON.parse(localStorage.getItem("Doctor"));
 
         // let data = {
@@ -140,10 +143,19 @@ function Doctor(props) {
         { field: 'Aptprice', headerName: 'Aptprice', width: 130 },
         { field: 'Discription', headerName: 'Discription', width: 130 },
         {
-            field: 'delete', headerName: 'Delete', width: 130,
+            field: 'url', headerName: 'Image', width: 130,
+            renderCell: (params) => (
+                <img src={params.row.url} width={50} height={50}></img>
+            )
+        },
+
+        {
+            field: 'delete', 
+            headerName: 'Delete',
+             width: 130,
             renderCell: (params) => (
                 <>
-                    <IconButton aria-label="delete" onClick={() => handleClickDopen(params.row.id)}>
+                    <IconButton aria-label="delete" onClick={()=>{setDid(params.row); handleClickDopen(params)}}>
                         <DeleteIcon />
                     </IconButton>
                 </>
@@ -164,21 +176,24 @@ function Doctor(props) {
 
 
     const handleEdit = (params) => {
+        console.log(params);
         setOpen(true);
         //console.log(params.row);
         setUid(params.row.id)
         setUpdate(true)
         console.log(params.row.id)
         formik.setValues({
-            id:params.id,
+            id: params.id,
             Doctorname: params.row.Doctorname,
             Degree: params.row.Degree,
             Aptprice: params.row.Aptprice,
             Discription: params.row.Discription,
+            file:params.row.url,
+            ...params.row
         });
     }
 
-    const handleDelete = () => {
+    const handleDelete = (data) => {
         // let localData = JSON.parse(localStorage.getItem("Doctor"))
 
         // let filterData = localData.filter((v, i) => v.id !== did);
@@ -278,8 +293,15 @@ function Doctor(props) {
                                         helperText={formik.errors.Discription}
                                         error={formik.errors.Discription ? true : false}
                                     />
+                                    <input
+                                        type="file"
+                                        name="file"
+                                        id="file"
+                                        onChange={(event) => formik.setFieldValue("file", event.target.files[0])}
+
+                                    />
                                     {
-                                        formik.errors.Discription && formik.touched.Discription ? <p>{formik.errors.Discription}</p> : ''
+                                        formik.errors.file && formik.touched.file ? <p>{formik.errors.file}</p> : ''
                                     }
                                     <DialogActions>
                                         <Button onClick={handleClose}>Cancel</Button>
